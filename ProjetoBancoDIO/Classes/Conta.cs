@@ -30,14 +30,20 @@ namespace ProjetoBancoDIO.Classes
         }
         public bool Sacar(double P_SaldoSaque)
         {
-            if (this.Saldo < P_SaldoSaque)
+            if (this.Saldo - P_SaldoSaque < (this.Credito *-1))
             {
                 Console.WriteLine("Saldo insuficiente!");
                 return false;
             }
-            this.Saldo -= P_SaldoSaque
-                ;
+            this.Saldo -= P_SaldoSaque;
             return true;
+        }
+        public string MostrarContar()
+        {
+            string Conta = "Tipo da Conta: " + this.TipoConta +
+                " | Nome: " + this.Nome + " | Saldo: " +
+                this.Saldo + " | Crédito: " + this.Credito;
+            return Conta;
         }
     }
 }
